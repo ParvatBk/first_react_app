@@ -1,27 +1,18 @@
+import { useState, useEffect } from 'react';
 import './App.css';
 
-const Person = (props) =>{
-  return (
-    <>
-    <h1>Name: {props.firstName}</h1> 
-    <h2> Last Name: {props.lastName}</h2>
-    <h2> Age : {props.age}</h2>
-    </>
-  )
-}
+
 const App = () =>{
-  const name = 'John';
-  const isNameShowing = false;
+  const [counter, setCounter] = useState(0);
+  useEffect(()=>{
+    //alert("You've change the counter to " + counter);
+  }, [counter]);
+
   return (
     <div className="App">
-      <Person 
-        firstName={'Jane'} 
-        lastName='Doe' 
-        age={23}
-      />
-      <Person lastName={'Doe'}/>
-      <Person age={30}/>
-      <Person firstName='Mary'/>
+      <button onClick={()=> setCounter((prevCount)=>prevCount -1)}>-</button>
+      <h1> {counter} </h1>
+      <button onClick={()=> setCounter((prevCount)=>prevCount +1)}>+</button>
     </div>
   );
 }
