@@ -5,7 +5,6 @@ import './App.css';
 const App = () =>{
   const [counter, setCounter] = useState(0);
   useEffect(()=>{
-    //alert("You've change the counter to " + counter);
   }, [counter]);
 
   return (
